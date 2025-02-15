@@ -1,3 +1,12 @@
 {%extends 'base.html'%}
 {% block title %}department page1{% endblock %}
-{% block content %}department content{% endblock %}
+{% block content %}
+<h1 class="text-center">OUR DEPARTMENTS</h1>
+<hr>
+{% for d in dept %}
+<div class="mx-auto w-50 bg-success text-center text-white p-3 my-5 border-warning rounded">
+<h1>{{d.dept_name}}</h1>
+<p>{{d.dept_description}}</p>
+</div>
+{%endfor%}
+{% endblock %}
