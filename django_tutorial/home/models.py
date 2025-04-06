@@ -19,3 +19,14 @@ class Booking(models.Model):
     booking_date=models.DateField()
     booked_on=models.DateField(auto_now=True)
 
+class Contacts(models.Model):
+    p_name = models.CharField(max_length=255)
+    p_phone = models.CharField(max_length=10)
+    p_email = models.EmailField()
+    message = models.TextField()  
+    def __str__(self):
+        return f"Message from {self.p_name}"
+
+    
+
+
