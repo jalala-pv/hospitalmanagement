@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Departments,Doctors,Booking
+from . models import Departments,Doctors,Booking,Contacts
 admin.site.register(Departments)
 admin.site.register(Doctors)
 class BookingAdmin(admin.ModelAdmin):
@@ -10,5 +10,10 @@ class BookingAdmin(admin.ModelAdmin):
 'booking_date',
 'booked_on')
 admin.site.register(Booking,BookingAdmin)
-
+class ContactsAdmin(admin.ModelAdmin):
+    list_display=('p_name',
+'p_phone',
+'p_email',
+'message')
+admin.site.register(Contacts,ContactsAdmin)
 # Register your models here.
