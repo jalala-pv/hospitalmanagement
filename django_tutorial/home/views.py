@@ -28,7 +28,7 @@ def contact(request):
         form=ContactsForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request,'confirmation.html')
+            return render(request,'msgrecieved.html')
     form=ContactsForm()
     dict_form={
         'form':form
