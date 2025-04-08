@@ -1,20 +1,26 @@
-{%extends 'base.html'%}
-{% block title %}doctors page1{% endblock %}
+{% extends 'base.html' %}
+{% block title %}Doctors Page{% endblock %}
 {% block content %}
 <h1 class="text-center">Our Doctors</h1>
 <hr>
 <div class="container text-center bg-light">
-    {% for d in doctors %}
-    
-    <div class="card text-center mx-3 my-3 " style="width: 18rem;display: inline-block;">
-        <img src="{{d.doc_image.url}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Dr.{{d.doc_name}}</h5>
-          <p class="card-text">{{d.doc_spec}}</p>
-          <h6>{{d.dept_name}} Department</h6>
-        </div>
-      </div>
-{%endfor%}
-</div>
+    <style>
+        .doctor-image {
+            width: 100%;          /* Make the image span the full width of the container */
+            height: 250px;        /* Set fixed height for all images */
+            object-fit: cover;    /* Ensures the aspect ratio is maintained, cropping if needed */
+        }
+    </style>
 
+    {% for d in doctors %}
+    <div class="card text-center mx-3 my-3" style="width: 18rem; display: inline-block;">
+        <img src="{{ d.doc_image.url }}" class="card-img-top doctor-image" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Dr. {{ d.doc_name }}</h5>
+            <p class="card-text">{{ d.doc_spec }}</p>
+            <h6>{{ d.dept_name }} Department</h6>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
